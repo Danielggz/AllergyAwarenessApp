@@ -1,12 +1,15 @@
 const express = require('express');
 const app = express();
+var fs = require('fs');
 const port = 3000;
 
 // Serve static files
 app.use(express.static('public'));
 
 app.get('/', (req, res) => {
-  res.send('Hello, World!');
+  fs.readFile('./html/realTimeDetection.html', 'utf-8', function(err, text){
+    res.send(text);
+  });
 });
 
 app.post('/dbInfo', (req, res)=>{
@@ -19,7 +22,12 @@ app.post('/dbInfo', (req, res)=>{
         database: 'allergyawarenessapp'
     })
 
-    connection.connect()
+    connection.connect(function(error){
+      if(error)
+         throw error;
+      else
+         console.log('Connected to database.');
+    });
 
     //Get barcode from the front side (post request includes the barcode)
     var barcode = req.body.barcode;
@@ -37,10 +45,6 @@ app.post('/dbInfo', (req, res)=>{
     connection.end()
 
     res.send(JSON.stringify(data));
-});
-
-app.get('/test', (req, res) => {
-    res.send('Testing!');
 });
 
 app.listen(port, () => {

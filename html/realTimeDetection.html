@@ -21,10 +21,13 @@
                 <img src="img/scanner.jpg"/>
             </div><br/><br/>
             <div class="search-bar">
-                <label for="barcode"> Barcode </label>
-                <input type="text" name="barcode" class="form-control search-input" value="20201234">
-                <br/>
-                <button id="btnSearch" class="btn btn-primary"> Search </button>
+                <form action="/dbInfo" method="post" id="barcodeForm">
+                    <label for="barcode"> Barcode </label>
+                    <input type="text" name="barcode" class="form-control search-input" value="20201234"/>
+                    <br/>
+                    <input type="submit"/><button id="btnSearch" class="btn btn-primary"> Search </button>
+                </form>
+                
             </div>
         </div>
     </div>
