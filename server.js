@@ -18,6 +18,40 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, "index.html"));
 });
 
+app.post('/login', (req, res) => {
+  const mysql = require('mysql')
+    //Database connection to the Allergy Awareness App database
+    const connection = mysql.createConnection({
+        host: 'localhost',
+        user: 'root',
+        password: '',
+        database: 'allergyawarenessapp'
+    })
+
+    connection.connect(function(error){
+      if(error)
+         throw error;
+      else
+         console.log('Connected to database.');
+    });
+
+    //Get barcode from the front side (post request includes the barcode)
+    var username = req.body.username;
+    var password = req.body.password;
+
+    //Query the barcode to the database table 'products'
+    connection.query("SELECT * from users where user_name = '" + username + "' and password = '" + password + "'", (err, data, fields) => {
+    if (err) throw err
+    
+    
+    //Send results back if there is not errors
+    res.send(JSON.stringify(data));
+    })
+
+    //End connection to db
+    connection.end()  
+})
+
 app.post('/dbInfo', (req, res)=>{
     const mysql = require('mysql')
     //Database connection to the Allergy Awareness App database
@@ -69,11 +103,47 @@ app.post('/newUser', (req, res)=>{
 
   var name = req.body.name;
   var surname = req.body.surname;
+  var password = req.body.password;
   var email = req.body.email;
-  var symptoms = req.body.symptoms;
+  var newsletter = req.body.newsletter;
 
   //Query the barcode to the database table 'products'
-  connection.query("INSERT INTO users(user_name, user_surname, email) VALUES('" + name + "', '" + surname + "', '" + email + "')", (err, data, fields) => {
+  connection.query("INSERT INTO users(user_name, user_surname, email, password, newsletter) VALUES('" + name + "', '" + surname + "', '" + email + "', '" + password + "', " + newsletter + ")", (err, data, fields) => {
+  if (err) throw err
+
+  //Send back success message
+  res.send(JSON.stringify("Data inserted!"));
+  })
+
+  //End connection to db
+  connection.end()    
+});
+
+app.post('/allergyRegister', (req, res)=>{
+  const mysql = require('mysql')
+  //Database connection to the Allergy Awareness App database
+  const connection = mysql.createConnection({
+      host: 'localhost',
+      user: 'root',
+      password: '',
+      database: 'allergyawarenessapp'
+  })
+
+  connection.connect(function(error){
+    if(error)
+       throw error;
+    else
+       console.log('Connected to database.');
+  });
+
+  var name = req.body.name;
+  var surname = req.body.surname;
+  var password = req.body.password;
+  var email = req.body.email;
+  var newsletter = req.body.newsletter;
+
+  //Query the barcode to the database table 'products'
+  connection.query("INSERT INTO users(user_name, user_surname, email, password, newsletter) VALUES('" + name + "', '" + surname + "', '" + email + "', '" + password + "', " + newsletter + ")", (err, data, fields) => {
   if (err) throw err
 
   //Send back success message

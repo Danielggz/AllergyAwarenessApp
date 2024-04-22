@@ -19,33 +19,33 @@
             <form action="#">
                 <!-- name -->
                 <div class="form-group">
-                    <label for="email">Name: </label>
+                    <label for="name">Name: </label>
                     <input type="text" class="form-control" id="name"/>
                 </div>
                 <!-- surname -->
                 <div class="form-group">
-                    <label for="email">Surname:</label>
+                    <label for="surname">Surname:</label>
                     <input type="text" class="form-control" id="surname"/>
+                </div>
+                <!-- password -->
+                <div class="form-group">
+                    <label for="password">Password: </label>
+                    <input type="password" class="form-control" id="password"/>
                 </div>
                 <!-- email -->
                 <div class="form-group">
                     <label for="email">Email address:</label>
                     <input type="email" class="form-control" id="email"/>
                 </div>
-                <!-- symptom -->
-                <div class="form-group">
-                    <label for="symptom">Symptom</label>
-                    <input type="text" class="form-control" id="symptom"/>
-                </div>
-                <button class="btn btn-primary">Do you have other symptoms?</button>
-    
                 <!-- checkbox for newsletter -->
                 <div class="checkbox">
-                  <label><input type="checkbox"> I want to subscribe to the Allergy Awareness Newsletter </label>
+                    <label><input id="newsletter" type="checkbox"> I want to subscribe to the Allergy Awareness Newsletter </label>
                 </div>
-                <button type="submit" class="btn btn-default">Submit</button>
+
+                <button type="submit" id="btnSubmit" class="btn btn-default">Submit</button>
             </form>
         </div>
     </div>
 </body>
+<script src="../js/register.js"></script>
 </html>
