@@ -15,7 +15,7 @@ $("document").ready(function(){
             success : function(data) {   
                 //Redirects to index in case the data is not empty
                 if(!jQuery.isEmptyObject(data))
-                    window.location.href = "index.html";
+                    window.location.href = "mainMenu.html";
                 else
                     // display error message if not valid (The data will be empty since it was not found in db)
                     $("#errorMsg").html("<div class='alert alert-danger'>The username or password are not valid. Please try again</div>")

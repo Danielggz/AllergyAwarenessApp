@@ -54,6 +54,6 @@ $("document").ready(function(){
 
     //return to menu button
     $("#btnMenu").click(function(){
-        window.location.href = "index.html"; 
+        window.location.href = "mainMenu.html"; 
     });
 });

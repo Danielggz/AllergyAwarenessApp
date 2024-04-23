@@ -8,7 +8,8 @@ $("document").ready(function(){
         //set values to barcodes
         var barcodeArr = ["20484255","20835996","20201234","20064440","4056489377603","20172688","20024727"];
         var random = Math.floor(Math.random() * barcodeArr.length);
-        $("#barcode").val(barcodeArr[random]).focus();
+        $("#barcode").val(barcodeArr[random]);
+        $("#btnSearch").focus();
         
     });
 
@@ -54,7 +55,7 @@ $("document").ready(function(){
     });
     //return to menu button
     $("#btnMenu").click(function(){
-        window.location.href = "index.html"; 
+        window.location.href = "mainMenu.html"; 
     });
 });
 
