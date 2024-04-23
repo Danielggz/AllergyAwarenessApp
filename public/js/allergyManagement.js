@@ -19,11 +19,11 @@ $("document").ready(function(){
 
     //Add more fields when clicking more symptoms
     $("#moreSymptoms").click(function(){
+        console.log("asda");
         $("#divSymptom").after("<div class='form-group'><label for='symptom'>Symptom</label><input type='text' class='form-control symptom' id='symptom'/></div>");
     });
 
     $("#btnSubmit").click(function(e){
-
         //Prevent default submit of the form
         e.preventDefault();
         

@@ -38,4 +38,9 @@ $("document").ready(function(){
             }
         });
     })
+
+    //return to menu button
+    $("#btnMenu").click(function(){
+        window.location.href = "login.html"; 
+    });
 });

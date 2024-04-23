@@ -44,7 +44,10 @@ app.post('/login', (req, res) => {
     if (err) throw err
 
     //Store id of current user in session
-    sessionID = data[0].id;
+    if(typeof data !== 'undefined' && data.length > 0){
+      sessionID = data[0].id;
+    }
+    
     //Send results back if there is not errors
     res.send(JSON.stringify(data));
     })
