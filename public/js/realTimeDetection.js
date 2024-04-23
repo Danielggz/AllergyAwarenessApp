@@ -1,38 +1,19 @@
-$("document").ready(function(){
-     // Function to initialize Quagga scanner
-     function initializeQuagga() {
-        Quagga.init({
-            inputStream : {
-                name : "Live",
-                type : "LiveStream",
-                target: document.querySelector('#scanner-container'), // Selector for the live stream container
-                constraints: {
-                    facingMode: "environment" // Use the rear camera for mobile devices
-                }
-            },
-            decoder : {
-                readers : ['ean_reader'] // Use EAN barcode reader
-            }
-        }, function(err) {
-            if (err) {
-                console.log(err);
-                return;
-            }
-            console.log("Initialization finished. Ready to start");
-            Quagga.start();
-        });
-    }
-    $("#btnSearch").click(function(){
+$("document").ready(function(){     
+    $("#btnScan").click(function(){
         // Stop any existing Quagga instance to avoid conflicts
-        Quagga.stop();
+        //Quagga.stop();
         // Initialize Quagga scanner
-        initializeQuagga();
+        //initializeQuagga();
+
+        //set values to barcodes
+        var barcodeArr = ["20484255","20835996","20201234","20064440","4056489377603","20172688","20024727"];
+        var random = Math.floor(Math.random() * barcodeArr.length);
+        $("#barcode").val(barcodeArr[random]).focus();
+        
     });
 
-    // Quagga scanner detection event
-    Quagga.onDetected(function(result) {
+    $("#btnSearch").click(function(){
         var barcode = $("#barcode").val();
-        console.log(barcode);
         $.ajax({
             url : 'http://localhost:3000/dbInfo',
             type : 'POST',
@@ -70,5 +51,40 @@ $("document").ready(function(){
                 alert("Request: "+ JSON.stringify(request));
             }
         });
-    })
+    });
+    //return to menu button
+    $("#btnMenu").click(function(){
+        window.location.href = "index.html"; 
+    });
 });
+
+    // Function to initialize Quagga scanner
+    function initializeQuagga() {
+        Quagga.init({
+            inputStream : {
+                name : "Live",
+                type : "LiveStream",
+                target: document.querySelector('#scanner-container'), // Selector for the live stream container
+                constraints: {
+                    facingMode: "environment" // Use the rear camera for mobile devices
+                }
+            },
+            decoder : {
+                readers : ['ean_reader'] // Use EAN barcode reader
+            }
+        }, function(err) {
+            if (err) {
+                console.log(err);
+                return;
+            }
+            console.log("Initialization finished. Ready to start");
+            Quagga.start();
+        });
+    }
+
+    // Quagga scanner detection event
+    Quagga.onDetected(function(result) {
+        
+    })
+
+    

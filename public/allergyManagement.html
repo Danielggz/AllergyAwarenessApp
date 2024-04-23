@@ -59,7 +59,7 @@
             <h1>Allergies Awareness App</h1>
             <p>Improving the way consumers access vital information on allergies during shopping</p><br/>
             <h2>Allergy Management</h2>
-            <form action="#">
+            <form id="formSymptoms" action="#">
                 <!-- name -->
                 <div class="form-group">
                     <label for="email">Name: </label>
@@ -76,14 +76,15 @@
                     <input type="email" class="form-control" id="email"/>
                 </div>
                 <!-- symptom -->
-                <div class="form-group">
+                <div id="divSymptom" class="form-group">
                     <label for="symptom">Symptom</label>
-                    <input type="text" class="form-control" id="symptom"/>
+                    <input type="text" class="form-control symptom" id="symptom"/>
                 </div>
-                <button class="btn btn-primary">Do you have other symptoms?</button>
+                <button id="moreSymptoms" class="btn btn-primary">Do you have other symptoms?</button>
 
                 <button type="submit" id="btnSubmit" class="btn btn-default">Submit</button>
             </form>
+            <button id="btnMenu" class="btn btn-default">Back</button>
         </div>
     </div>
     <!-- js script -->
