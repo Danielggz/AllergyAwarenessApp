@@ -29,4 +29,7 @@ $("document").ready(function(){
     $("#btnRegister").click(function(){
         window.location.href = "register.html"; 
     });
+    $("#forgot_password").click(function () {
+        window.location.href = "forgot_password.html";
+    })
 });

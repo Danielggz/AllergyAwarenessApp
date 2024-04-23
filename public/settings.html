@@ -9,9 +9,50 @@
     <script src="../js/lib/jquery-3.7.1.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #9dba9d; 
+            padding-top: 20px;
+            color: #000; 
+        }
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        .app-header {
+            padding: 20px;
+            background-color: lightgrey;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+            
+        }
+        h1 {
+            margin-bottom: 20px; 
+            text-align: center;
+        }
+        .settings-option {
+            cursor: pointer;
+            padding: 10px 0;
+            border-bottom: 1px solid #ccc; 
+        }
+        .settings-option:last-child {
+            border-bottom: none; 
+        }
+        .settings-option:hover {
+            background-color: #f0f0f0;
+        }
+    </style>
 </head>
 <body>
-    [User information, change password, email etc]
+    <div class="container">
+        <div class="app-header">
+            <h1>Settings</h1>
+            <div class="settings-option" onclick="openUserInfo()">User Information</div>
+            <div class="settings-option" onclick="openChangePassword()">Change Password</div>
+            <div class="settings-option" onclick="openEmailSettings()">Email Settings</div>
+        </div>
+    </div>
     <script src="../js/settings.js"></script>
 </body>
 </html>

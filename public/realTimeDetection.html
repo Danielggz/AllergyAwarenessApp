@@ -9,6 +9,63 @@
     <script src="../js/lib/jquery-3.7.1.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <!-- Add Quagga.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/quagga/0.12.1/quagga.min.js"></script>
+
+    <style>
+        body {
+            background-color: #9dba9d;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            max-width: 500px;
+            margin: auto;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #e3eae3;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .app-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        h1, h2 {
+            color: #007bff;
+        }
+        .search-bar {
+            text-align: center;
+        }
+        #scannerVideo {
+            width: 100%;
+            border-radius: 10px;
+        }
+        .form-control {
+            margin-bottom: 10px;
+        }
+        #barcode {
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            color: #28a745;
+            border: none;
+            border-bottom: 2px solid #28a745;
+            background-color: transparent;
+            width: 100%;
+            padding: 10px 0;
+        }
+        #btnScan {
+            width: 100%;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            padding: 10px 0;
+            cursor: pointer;
+        }
+        #btnScan:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -18,7 +75,9 @@
             <h2>Real Time Detection</h2><br/><br/>
     
             <div id="scannerImage">
-                <img src="img/scanner.jpg"/>
+                <video id="scannerVideo"></video>
+                <button id="btnScan">Scan Barcode</button>
+            </div>
             </div><br/><br/>
             <div class="search-bar">
                 <label for="barcode"> Barcode </label>
