@@ -1,0 +1,74 @@
+body {
+    background-color: #9dba9d;
+    font-family: Arial, sans-serif;
+}
+.container {
+    max-width: 500px;
+    margin: auto;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #e3eae3;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.app-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+h1, h2 {
+    color: #007bff;
+}
+.search-bar {
+    text-align: center;
+}
+#scannerVideo {
+    width: 100%;
+    border-radius: 10px;
+}
+.form-control {
+    margin-bottom: 10px;
+}
+#barcode {
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: #28a745;
+    border: none;
+    border-bottom: 2px solid #28a745;
+    background-color: transparent;
+    width: 100%;
+    padding: 10px 0;
+}
+#btnScan {
+    width: 100%;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    padding: 10px 0;
+    cursor: pointer;
+}
+#btnScan:hover {
+    background-color: #0056b3;
+}
+/* MODAL */
+#infoProduct{
+    margin: auto;
+}
+#product{
+    font-size:16px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+#product > div{
+    display:flex;
+    flex-direction: column;
+    margin: 15px;
+}
+#product span{
+    text-align: center;
+    margin-top:15px;
+}
+#product .title{
+    font-size:20px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+}

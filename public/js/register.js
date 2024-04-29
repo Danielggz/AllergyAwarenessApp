@@ -1,4 +1,6 @@
 $("document").ready(function(){
+
+    jasmine.execute();
     $("#btnSubmit").click(function(e){
 
         //Prevent default submit of the form
