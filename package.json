@@ -2,18 +2,20 @@
   "name": "allergyawarenessapp",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
+    "test-init": "jasmine init",
     "test": "jasmine"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^1.6.8",
     "body-parser": "^1.20.2",
     "cors": "^2.8.5",
     "express": "^4.19.2",
-    "jasmine-node": "^3.0.0",
+    "jasmine-node": "^1.16.0",
     "mysql": "^2.18.1"
   },
   "devDependencies": {

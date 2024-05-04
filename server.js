@@ -187,6 +187,13 @@ app.get('/getCurUser', (req, res)=>{
     connection.end() 
 });
 
-app.listen(port, () => {
+app.get('/testing', (req, res)=>{
+  res.status(200).send({"message": "Message delivered"});
+});
+
+var server = app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
 });
+
+//Export server to testing
+module.exports = server;
