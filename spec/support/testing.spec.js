@@ -21,7 +21,7 @@ describe("Server", ()=>{
                 done();
             } )
             .catch((err)=>{
-                console.log(err);
+                //console.log(err);
                 done();
             });;
         });
