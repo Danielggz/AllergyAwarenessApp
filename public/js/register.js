@@ -1,6 +1,5 @@
 $("document").ready(function(){
 
-    jasmine.execute();
     $("#btnSubmit").click(function(e){
 
         //Prevent default submit of the form
@@ -30,9 +29,11 @@ $("document").ready(function(){
                 'newsletter': newsletter
             },
             dataType:'json',
-            success : function(data) {              
+            success : function(data) {
+                if(typeof data.msg !== 'undefined'){
+                    $("#errorMsg").html("<span class='alert alert-danger'>The user name must not contain spaces</span>");
+                }        
                 console.log(data);
-                
             },
             error : function(request,error)
             {

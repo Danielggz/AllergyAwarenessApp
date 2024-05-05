@@ -106,6 +106,11 @@ app.post('/newUser', (req, res)=>{
   });
 
   var name = req.body.name;
+  if(name.indexOf(' ') >= 0){
+    connection.end();
+    //Send error message if there are spaces in name
+    res.send(JSON.stringify({"msg": "Name must not have spaces"}));
+  }
   var surname = req.body.surname;
   var password = req.body.password;
   var email = req.body.email;
